@@ -1,0 +1,14 @@
+[
+  {
+    "property": "mod.tab-controls.hide-essential-close",
+    "label": "Hide Close on Essentials",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.tab-controls.hide-url-reset",
+    "label": "Hide URL Reset on pinned tabs",
+    "type": "checkbox",
+    "defaultValue": false
+  }
+]
