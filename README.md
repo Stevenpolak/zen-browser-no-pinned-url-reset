@@ -1,6 +1,6 @@
 # Tab button visibility
 
-A Zen Browser mod with independent settings for hiding the Close button on Essentials and the URL Reset button on pinned tabs.
+A Zen Browser mod with independent settings for hiding the Close / Unload control and the URL Reset control on pinned tabs and Essentials.
 
 Based on [spicybackend/zen-browser-no-pinned-url-reset](https://github.com/spicybackend/zen-browser-no-pinned-url-reset). See LICENSE for the original license.
 
@@ -10,14 +10,14 @@ The mod uses Zen's built-in mod settings, defined in `preferences.json`.
 
 | Setting | Default | Effect when enabled |
 | --- | --- | --- |
-| Hide Close on Essentials | On | Hides `.tab-close-button` on Essential tabs only. |
-| Hide URL Reset on pinned tabs | Off | Hides `.tab-reset-pin-button`, which returns a pinned tab to its saved URL. |
+| Hide Close / Unload on pinned tabs and Essentials | On | Hides `.tab-close-button` and `.tab-reset-button` on pinned tabs and Essentials. |
+| Hide URL Reset on pinned tabs and Essentials | Off | Hides `.tab-reset-pin-button`, which returns a pinned tab to its saved URL. |
 
 Enable either checkbox, both, or neither. When a checkbox is off, the mod adds no hiding rule for that control; Zen and other mods determine its normal visibility. This mod does not force buttons to appear and does not disable keyboard shortcuts or menu actions.
 
-In current Zen source, Essentials already hide the Close button by default. The first setting is therefore useful only where another theme or mod makes that control visible.
+Essentials already hide their controls by default in current Zen. These rules also cover Essentials if another theme makes the controls visible. Normal, unpinned tabs are unaffected.
 
-The unload control (`.tab-reset-button`) is separate from the URL Reset control and is not changed by this fork.
+On loaded pinned tabs, Zen uses `.tab-reset-button` for the close/unload action. The Close / Unload setting hides that control as well as `.tab-close-button`. URL Reset uses `.tab-reset-pin-button` and has its own setting. The original `hide-essential-close` preference key is retained to preserve saved checkbox choices.
 
 ## Installation notes
 
