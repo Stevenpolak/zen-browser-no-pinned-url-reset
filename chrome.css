@@ -1,8 +1,13 @@
-#tabbrowser-tabs {
-  & .tabbrowser-tab {
-    &[pinned]:not([zen-essential]):hover .tab-reset-button,
-    &[pinned][visuallyselected]:not([zen-essential]) .tab-reset-button {
-      display: none !important;
-    }
+/* Hide the close button on Essentials only. */
+@media (-moz-pref("mod.tab-controls.hide-essential-close")) {
+  .tabbrowser-tab[zen-essential] .tab-close-button {
+    display: none !important;
+  }
+}
+
+/* Hide the control that returns a pinned tab to its saved URL. */
+@media (-moz-pref("mod.tab-controls.hide-url-reset")) {
+  .tabbrowser-tab[pinned] .tab-reset-pin-button {
+    display: none !important;
   }
 }
