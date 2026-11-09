@@ -1,13 +1,15 @@
-/* Hide the close button on Essentials only. */
+/* Keep the existing preference key so saved checkbox choices still work. */
 @media (-moz-pref("mod.tab-controls.hide-essential-close")) {
-  .tabbrowser-tab[zen-essential] .tab-close-button {
+  .tabbrowser-tab:is([pinned], [zen-essential])
+    > .tab-stack > .tab-content > :is(.tab-close-button, .tab-reset-button) {
     display: none !important;
   }
 }
 
-/* Hide the control that returns a pinned tab to its saved URL. */
+/* URL Reset is independent of the close/unload control. */
 @media (-moz-pref("mod.tab-controls.hide-url-reset")) {
-  .tabbrowser-tab[pinned] .tab-reset-pin-button {
+  .tabbrowser-tab:is([pinned], [zen-essential])
+    > .tab-stack > .tab-content > .tab-reset-pin-button {
     display: none !important;
   }
 }
