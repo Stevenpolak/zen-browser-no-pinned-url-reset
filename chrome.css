@@ -13,3 +13,23 @@
     display: none !important;
   }
 }
+
+/* Keep URL Reset available at the saved URL in the expanded sidebar.
+   Explicitly hiding URL Reset takes priority. Essentials keep their layout. */
+@media not (-moz-pref("mod.tab-controls.hide-url-reset")) {
+  :root[zen-sidebar-expanded="true"]
+    .tabbrowser-tab[pinned]:not([zen-essential])
+    > .tab-stack > .tab-content > .tab-reset-pin-button {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  /* Zen clears the saved favicon variable when the URL matches.
+     Supply a reload icon so the button remains visible and recognizable. */
+  :root[zen-sidebar-expanded="true"]
+    .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-pinned-changed="true"])
+    > .tab-stack > .tab-content > .tab-reset-pin-button > image {
+    list-style-image: url("chrome://global/skin/icons/reload.svg") !important;
+    opacity: 1 !important;
+  }
+}
