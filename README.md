@@ -13,11 +13,17 @@ The mod uses Zen's built-in mod settings, defined in `preferences.json`.
 | Hide Close / Unload on pinned tabs and Essentials | On | Hides `.tab-close-button` and `.tab-reset-button` on pinned tabs and Essentials. |
 | Hide URL Reset on pinned tabs and Essentials | Off | Hides `.tab-reset-pin-button`, which returns a pinned tab to its saved URL. |
 
-Enable either checkbox, both, or neither. When a checkbox is off, the mod adds no hiding rule for that control; Zen and other mods determine its normal visibility. This mod does not force buttons to appear and does not disable keyboard shortcuts or menu actions.
+Enable either checkbox, both, or neither. When Close / Unload is unchecked, Zen determines its normal visibility. When Hide URL Reset is unchecked, this mod keeps URL Reset available on named pinned tabs in the expanded sidebar, including at the saved URL. Hiding URL Reset takes priority. Keyboard shortcuts and menu actions are unchanged.
 
 Essentials already hide their controls by default in current Zen. These rules also cover Essentials if another theme makes the controls visible. Normal, unpinned tabs are unaffected.
 
 On loaded pinned tabs, Zen uses `.tab-reset-button` for the close/unload action. The Close / Unload setting hides that control as well as `.tab-close-button`. URL Reset uses `.tab-reset-pin-button` and has its own setting. The original `hide-essential-close` preference key is retained to preserve saved checkbox choices.
+
+## Reset at the saved URL
+
+With Hide URL Reset off, the reset button stays available on named pinned tabs even when their URL matches the saved URL. It shows a reload icon in that state. Clicking it uses Zen's existing reset action, which restores the saved page state and reloads the page. This can also reset tab history, scroll position, and session storage; it is not a cache-bypassing hard refresh.
+
+This extra visibility applies to the expanded sidebar. Essentials and the collapsed sidebar keep their native layout.
 
 ## Installation notes
 
